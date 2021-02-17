@@ -1,0 +1,36 @@
+/** Gebruik gemaakt van het standaard module template. */
+
+let feedbackModule = (function ($) {
+    //---------
+    //private module scrope variables
+    //---------
+    var _configMap = {
+        //TODO
+    },
+    _initModule,
+    _toonSuccesBericht,
+    _toonErrorBericht;
+
+    _initModule = (container) => {
+        //TODO
+    };
+
+    _toonSuccesBericht = (elementid) => {
+        //TODO
+        var element = document.getElementById(elementid);
+        element.classList.add("hidden");
+    };
+    _toonErrorBericht = (bericht) => {
+        console.log(' Error ${bericht}' );
+    };
+
+    //------
+    //API
+    //------
+
+    return {
+        initModule: _initModule,
+        toonSuccesBericht: _toonSuccesBericht,
+        toonErrorBericht: _toonErrorBericht
+    }
+})(jQuery);

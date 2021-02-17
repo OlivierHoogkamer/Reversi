@@ -1,0 +1,15 @@
+.hidden {
+    display:none;
+}
+.feedback-widget{
+    background-color:grey;
+    width:100%;
+     height:5%;
+     text-align:center;
+}
+.success {
+    background-color: rgb(101, 170, 73);
+}
+.error {
+    background-color: rgb(218, 73, 73);
+}
