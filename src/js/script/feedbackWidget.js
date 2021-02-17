@@ -7,19 +7,28 @@ class feedbackWidget{
     }
     log(message){
         
-
-        localStorage.setItem(JSON.stringify("feedback_widget"), JSON.stringify(message))
-
-    
-        
-
+        var oldItems = JSON.parse(localStorage.getItem('feedback_widget')) || []; // kijkt of er al dingen staan
+        if (oldItems.length <= 10) { // niet meer dan 10 items!
+            var newItem = 
+            {
+            message
+            };
+            
+            oldItems.push(newItem);
+            
+            localStorage.setItem('feedback_widget', JSON.stringify(oldItems));
+        }else {
+            oldItems.shift(); // haalt de eerste entry uit de array
+            var newItem = 
+            {
+            message
+            };
+            
+            oldItems.push(newItem);
+            
+            localStorage.setItem('feedback_widget', JSON.stringify(oldItems));
+        }   
     }
-    removeLog(message, id){
-        localStorage.removeItem(id, JSON.stringify(message))
-    }
-
-
-    
     show(message, type){
         
         
@@ -35,10 +44,12 @@ class feedbackWidget{
             $(".feedback-widget").removeClass('success');
         }
 
+
+
+       
         var logMessage = {type, message};
 
-
-
+   
         this.log(logMessage);
         
     }
